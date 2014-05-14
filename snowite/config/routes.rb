@@ -1,8 +1,9 @@
 Snowite::Application.routes.draw do
-  get "sessions/new" => 'sessions#new'
-  post "sessions/new" => 'sessions#create'
-  get "users/new" => 'users#new'
-  post "users/new" => 'users#create' 
+  get "log_in" => 'sessions#new'
+  post "log_in" => 'sessions#create'
+  get "sign_up" => 'users#new'
+  post "sign_up" => 'users#create' 
+  get "log_out" => 'sessions#destroy'
   root :to => "users#new"
  # resources :users
   # The priority is based upon order of creation:

@@ -3,7 +3,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    #binding.pry
     user = User.new.login(params[:session][:email], params[:session][:password])
     if user
       session[:user_id] = user.id
@@ -16,6 +15,7 @@ class SessionsController < ApplicationController
 
   def destroy
    session[:user_id] = nil
+   redirect_to "/log_in"
   end
 
 end

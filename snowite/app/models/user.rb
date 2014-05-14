@@ -6,9 +6,6 @@ class User < ActiveRecord::Base
   validates_presence_of :email, :password, :password_confirmation
   validates_confirmation_of :password
 
-  #after_save
-  #session[:user_id]=user[:id]
-
   def password
     @password ||= Password.new(password_hash)
   end
@@ -20,7 +17,6 @@ class User < ActiveRecord::Base
 
   def login(email, enquired_password)
     @user = User.find_by_email(email)
-    binding.pry
     if @user.password == enquired_password
       @user
     else
