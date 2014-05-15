@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.new.login(params[:session][:email], params[:session][:password])
     if user
       session[:user_id] = user.id
-      redirect_to root_url
+      redirect_to '/user_show' 
     else
       flash[:notice => "invalid"]
       render "new"
