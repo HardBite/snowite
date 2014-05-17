@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   include BCrypt
 
-  attr_accessible :fname, :lname, :bio, :email, :password, :password_confirmation
-
+  attr_accessible :fname, :lname, :bio, :email, :password, :password_confirmation, :admincheck
+  attr_accessor :admincheck
   validates_presence_of :email, :password, :password_confirmation
   validates_confirmation_of :password
 
@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
   def login(email, enquired_password)
     @user = User.find_by_email(email)
-    if @user.password == enquired_password
+    if @user && @user.password == enquired_password
       @user
     else
       nil

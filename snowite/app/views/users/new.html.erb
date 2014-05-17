@@ -33,6 +33,7 @@
     <%=f.label :password_confirmation %></br>
     <%=f.password_field :password_confirmation %>  
     </p>
+    <p><%= f.check_box :admincheck, {}, "true", "false" %> Admin est</p>
     <p class="button"><%= f.submit %>  </p>
 
     </td>
