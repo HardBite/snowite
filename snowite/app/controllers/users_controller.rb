@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    if params[:user][:admincheck]
+    if params[:user][:admincheck] == "true"
       @admin = Admin.new(params[:user])
       if @admin.save
         session[:admin_id]=@admin.id
