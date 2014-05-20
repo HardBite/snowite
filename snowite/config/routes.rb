@@ -1,4 +1,7 @@
 Snowite::Application.routes.draw do
+  get "add_admin" => 'admins#new'
+  post "add_admin" => 'admins#create'
+
   get "log_in" => 'sessions#new'
   post "log_in" => 'sessions#create'
   get "sign_up" => 'users#new'
@@ -10,7 +13,9 @@ Snowite::Application.routes.draw do
   post "user_edit" => 'users#update'
   get "users_list" => 'users#list'
 
-  match 'users/:id/del' => 'users#destroy'
+  delete 'users/:id/del' => 'users#destroy'
+  delete 'admins/:id/del' => 'admins#destroy'
+
 
   root :to => "users#new"
  # resources :users

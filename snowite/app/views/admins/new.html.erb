@@ -1,11 +1,11 @@
-<h1> Sign Up </h1>
+<h1> Add Admin </h1>
 
-<%= form_for :user, :method => :post, :action => :create do |f|%>
-  <% if @user.errors.any? %>
+<%= form_for :admin, :method => :post, :action => :create do |f|%>
+  <% if @admin.errors.any? %>
   <div class="error_messages">
       <h2>Form is invalid</h2>
       <ul>
-        <% for message in @user.errors.full_messages %>
+        <% for message in @admin.errors.full_messages %>
           <li><%= message %></li>
         <% end %>
         <%end%>
@@ -34,6 +34,7 @@
     <%=f.password_field :password_confirmation %>  
     </p>
     
+    <p><%= select :user, :role_id, [['SuperAdmin', 1],['Admin', 2],['User',3]] %></p>
     <p class="button"><%= f.submit %>  </p>
 
     </td>

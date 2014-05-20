@@ -1,8 +1,9 @@
 class Admin < ActiveRecord::Base
   include BCrypt
 
-  attr_accessible :admincheck, :fname, :lname, :bio, :email, :password, :password_confirmation
-  attr_accessor :admincheck
+  belongs_to :role
+
+  attr_accessible :admincheck, :fname, :lname, :bio, :email, :password, :password_confirmation, :role_id
 
   validates_presence_of :email, :password, :password_confirmation
   validates_confirmation_of :password

@@ -1,11 +1,31 @@
-<h1> Behold all users! </h1>
+<%if session[:role_id] < 3 %>
 
-<ul>
-    <% @user.each do |user|%>
-      <li>  <i> <%= user.fname %>   <%= user.lname %>  <%= link_to "show", "/user_show/#{user.email}"%>
-        <%= user.created_at.httpdate %>  </i> <%= link_to "delete", "/users/#{user.id}/del", :method => :delete %></li>
-   
-    <%end%>
-  </ul>
 
+    <h1> Behold all users! </h1>
+
+    <ul>
+        <% @user.each do |user|%>
+          <li>  <i> <%= user.fname %>   <%= user.lname %> 
+            <%= link_to "show", "/user_show/#{user.email}"%>
+            <%= user.created_at.httpdate %> 
+          </i> <%= link_to "delete", "/users/#{user.id}/del",
+          :method => :delete %></li>
+       <%end%>
+     </ul>
+<%end%>
+
+<%if session[:role_id] == 1 %>
+
+    <h1> Behold all admins as well! </h1>
+    <%@admin = Admin.all%>
+    <ul>
+        <% @admin.each do |admin|%>
+          <li>  <i> <%= admin.fname %>   <%= admin.lname %> 
+            <%= link_to "show", "/user_show/#{admin.email}"%>
+            <%= admin.created_at.httpdate %> 
+          </i> <%= link_to "delete", "/admins/#{admin.id}/del",
+          :method => :delete %></li>
+       <%end%>
+     </ul>
+   <%end%>
 

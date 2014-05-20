@@ -1,0 +1,11 @@
+<h1> Behold! </h1>
+
+<ul><li> First name     <i> <%= @admin.fname %>              </i></li>
+    <li> Last name      <i> <%= @admin.lname %>              </i> </li>
+    <li> Email          <i> <%= @admin.email %>              </i> </li>
+    <li> Biography      <i> <%= @admin.bio %>                </i> </li>
+    <li> With us since  <i> <%= @admin.created_at.httpdate %></i> </li>
+</ul>
+
+<%= link_to 'Edit my profile', '/admin_edit'  %>
+

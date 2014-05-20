@@ -1,0 +1,11 @@
+<h1> Behold all admins! </h1>
+
+<ul>
+    <% @admin.each do |admin|%>
+      <li>  <i> <%= admin.fname %>   <%= admin.lname %>  <%= link_to "show", "/admin_show/#{admin.email}"%>
+        <%= admin.created_at.httpdate %>  </i> <%= link_to "delete", "/admins/#{admin.id}/del", :method => :delete %></li>
+   
+    <%end%>
+  </ul>
+
+
