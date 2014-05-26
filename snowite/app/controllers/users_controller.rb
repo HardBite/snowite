@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   end
   
   def list
-    @users = User.order(params[:sort] + ' ' + params[:direction])
+    @users = User.order(sort_column + " " + sort_direction).page(params[:page]).per(5)
   end
 
   def show

@@ -14,7 +14,7 @@ private
   end
 
   def sort_column
-    params[:sort] || "name"
+    params[:sort] || "fname"
   end
   
   def sort_direction

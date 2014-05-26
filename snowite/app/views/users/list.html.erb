@@ -10,21 +10,9 @@
           <td><i> <%= user.fname %> <%= user.lname %> </i><%= link_to "show", "/user_show/#{user.email}"%> </td>
           <td>  <%= user.created_at.httpdate %> 
                 <%= link_to "delete", "/users/#{user.id}/del",
-                    :method => :delete %></td>
-       <%end%>
-<%end%>
-
-<%if session[:role_id] == 1 %>
-
-  <tr colspan=2> <td><h3> Behold all admins as well! </h3> </td></tr>
-    <%@admin = Admin.all%>
-      <% @admin.each do |user|%>
-        <tr>  
-          <td><i> <%= user.fname %> <%= user.lname %> </i><%= link_to "show", "/user_show/#{user.email}"%> </td>
-          <td>  <%= user.created_at.httpdate %> 
-                <%= link_to "delete", "/admins/#{user.id}/del",
-                    :method => :delete %></td>
-       <%end%>
-     </table>
-   <%end%>
+                :method => :delete %></td>
+                   <%end%> 
+                 <%end%>
+      <%= paginate @users%> 
+</table>
 
