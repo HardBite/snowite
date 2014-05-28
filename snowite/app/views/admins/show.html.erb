@@ -7,5 +7,5 @@
     <li> With us since  <i> <%= @admin.created_at.httpdate %></i> </li>
 </ul>
 
-<%= link_to 'Edit my profile', '/admin_edit'  %>
+<%= link_to 'Edit my profile', edit_admin_path(:id)  %>
 
