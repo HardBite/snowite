@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         session[:user_id] = nil
         session[:admin_id] = admin.id
         session[:role_id] = admin.role_id
-        redirect_to '/users_list'
+        redirect_to users_path
       elsif
         user = User.new.login(params[:session][:email],
                               params[:session][:password])
@@ -17,14 +17,13 @@ class SessionsController < ApplicationController
           session[:admin_id] = nil
           session[:user_id] = user.id
           session[:role_id] = user.role_id
-          redirect_to '/user_show' 
+          redirect_to user_path(:id) 
         end
       
       else
         flash[:notice => "invalid"]
         render "new"
     end
- #binding.pry
   end
 
 

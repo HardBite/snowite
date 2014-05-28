@@ -1,6 +1,6 @@
 <h1> Add Admin </h1>
 
-<%= form_for :admin, :method => :post, :action => :create do |f|%>
+<%= form_for @admin, :method => :post, :action => :create do |f|%>
   <% if @admin.errors.any? %>
   <div class="error_messages">
       <h2>Form is invalid</h2>
@@ -34,7 +34,7 @@
     <%=f.password_field :password_confirmation %>  
     </p>
     
-    <p><%= select :user, :role_id, [['SuperAdmin', 1],['Admin', 2],['User',3]] %></p>
+    <p><%= select :admin, :role_id, [['SuperAdmin', 1],['Admin', 2]] %></p>
     <p class="button"><%= f.submit %>  </p>
 
     </td>

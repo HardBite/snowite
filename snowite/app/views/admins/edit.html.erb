@@ -1,11 +1,11 @@
 <h1>Edit</h1>
 
-<%= form_for :user do |f|%>
-  <% if @user.errors.any? %>
+<%= form_for @admin do |f|%>
+  <% if @admin.errors.any? %>
   <div class="error_messages">
       <h2>Form is invalid</h2>
       <ul>
-        <% for message in @user.errors.full_messages %>
+        <% for message in @admin.errors.full_messages %>
           <li><%= message %></li>
         <% end %>
         <%end%>

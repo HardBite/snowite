@@ -19,17 +19,17 @@
         <div class="nav-collapse">
           <ul class="nav">
               <% if current_user %>
-                <li> <%= link_to "View my profile", '/user_show' %> </li>
-                <li> <%= link_to "Edit my profile", '/user_edit'%> </li>
+                <li> <%= link_to "View my profile", user_path(:id) %> </li>
+                <li> <%= link_to "Edit my profile", edit_user_path(:id)%> </li>
                     <% if session[:role_id] && session[:role_id]<3 %>
-                          <li> <%= link_to "Show users", '/users_list'%> </li>
+                          <li> <%= link_to "Show users", users_path%> </li>
                     <% end %>
                     <% if session[:role_id] == 1%>
-                          <li> <%= link_to "Add admin", '/add_admin'%> </li>
+                          <li> <%= link_to "Add admin", new_admin_path%> </li>
                     <%end%>
                <li><%= link_to "Log out", log_out_path %></li>
               <% else %>
-                <li> <%= link_to "Sign up", sign_up_path %> </li>
+                <li> <%= link_to "Sign up", new_user_path %> </li>
                 <li ><%= link_to "log in", log_in_path %> </li>
               <% end %>
           </ul>

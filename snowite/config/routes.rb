@@ -1,23 +1,26 @@
 Snowite::Application.routes.draw do
-  get "add_admin" => 'admins#new'
-  post "add_admin" => 'admins#create'
+
+  resources :users
+  resources :admins
+#  get "add_admin" => 'admins#new'
+#  post "add_admin" => 'admins#create'
 
   get "log_in" => 'sessions#new'
   post "log_in" => 'sessions#create'
-  get "sign_up" => 'users#new'
-  post "sign_up" => 'users#create' 
+#  get "sign_up" => 'users#new'
+#  post "sign_up" => 'users#create' 
   get "log_out" => 'sessions#destroy'
-  get "user_show/:id" => 'users#show'
-  get "user_show" => 'users#show'
-  get "user_edit" => 'users#edit'
-  post "user_edit" => 'users#update'
-  get "users_list" => 'users#list'
+#  get "user_show/:id" => 'users#show'
+#  get "user_show" => 'users#show'
+#  get "user_edit" => 'users#edit'
+#  post "user_edit" => 'users#update'
+#  get "users_list" => 'users#list'
 
-  delete 'users/:id/del' => 'users#destroy'
-  delete 'admins/:id/del' => 'admins#destroy'
+#  delete 'users/:id/del' => 'users#destroy'
+#  delete 'admins/:id/del' => 'admins#destroy'
 
 
-  root :to => "users#new"
+  root :to => "sessions#new"
  # resources :users
   # The priority is based upon order of creation:
   # first created -> highest priority.

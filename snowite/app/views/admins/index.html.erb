@@ -1,0 +1,18 @@
+<%if session[:role_id] < 3 %>
+
+    <h3> Behold all admins! </h3>
+
+    <table class="table table-stripped">
+      <th> <%= sortable "fname", "Name" %> </th>
+      <th> <%= sortable"created_at", "Registered on" %> </th>
+      <% @admins.each do |admin|%>
+        <tr>  
+          <td><i> <%= admin.fname %> <%= admin.lname %> </i><%= link_to "show", "admins/#{admin.id}"%> </td>
+          <td>  <%= admin.created_at.httpdate %> 
+                <%= link_to "delete", "admins/#{admin.id}",
+                :method => :delete %></td>
+                   <%end%> 
+                 <%end%>
+      <%= paginate @admins%> 
+</table>
+

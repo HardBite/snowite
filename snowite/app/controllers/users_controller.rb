@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_filter :require_login, only: [:show, :edit, :destroy]
-  before_filter :require_admin, only: [:list, :destroy]
+  before_filter :require_admin, only: [:index, :destroy]
 
   def require_admin
     unless session[:admin_id] && session[:role_id]<3
@@ -29,13 +29,13 @@ class UsersController < ApplicationController
       if @user.save
         session[:user_id] = @user.id
         session[:role_id] = @user.role_id
-        redirect_to '/user_show'
+        redirect_to user_path(:id)
       else
         render "new"
       end
   end
   
-  def list
+  def index
     @users = User.order(sort_column + " " + sort_direction).page(params[:page]).per(5)
   end
 
@@ -65,7 +65,7 @@ class UsersController < ApplicationController
       @user = User.find_by_id(session[:user_id])
       if @user.update_attributes(params[:user])
         flash[:success] = "Profile updated"
-        redirect_to '/user_show'
+        redirect_to user_path(:id)
       else
         render 'edit'
       end
@@ -73,7 +73,7 @@ class UsersController < ApplicationController
       @user = Admin.find_by_id(session[:admin_id])
       if @user.update_attributes(params[:user])
         flash[:success] = "Profile updated"
-        redirect_to '/user_show'
+        redirect_to admin_path(:id)
       else 
         render 'edit'
       end
@@ -82,7 +82,7 @@ class UsersController < ApplicationController
 
   def destroy
       User.find_by_id(params[:id]).destroy
-      redirect_to '/users_list'
+      redirect_to users_path
   end
 
 end
