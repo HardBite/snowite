@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
-  before_filter :require_login, only: [:show, :edit, :destroy]
-  before_filter :require_admin, only: [:index, :destroy]
+ # before_filter :require_login, only: [:show, :edit, :destroy]
+ # before_filter :require_admin, only: [:index, :destroy]
 
   def require_admin
     unless session[:admin_id] && session[:role_id]<3
@@ -17,7 +17,12 @@ class UsersController < ApplicationController
     end
   end
 
-
+  def usermodal
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 
   def new
     @user = User.new

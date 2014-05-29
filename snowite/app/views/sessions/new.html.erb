@@ -15,3 +15,7 @@
   <a href='#' onclick='alert("Oh,shit, it happens!")'>Link</a>
 <%end%>  
 
+<%= link_to 'Add user by modal window', '/usermodal',  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %>
+
+<div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+

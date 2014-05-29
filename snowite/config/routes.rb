@@ -1,5 +1,5 @@
 Snowite::Application.routes.draw do
-
+  get "/usermodal" => 'users#usermodal'
   resources :users
   resources :admins
 #  get "add_admin" => 'admins#new'

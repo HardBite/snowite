@@ -1,0 +1,9 @@
+<h1> Sign Up </h1>
+
+<%= form_for @user, :method => :post, :action => :create do |f|%>
+ 
+  <%= render(:partial => "form", :locals => { :f => f, :user => @user })%>
+
+<%end%>  
+
+

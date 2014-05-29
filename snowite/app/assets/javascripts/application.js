@@ -14,7 +14,8 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
-
+//= require bootstrap/modal
+//
 $(function() {
   $("#users th a, #users.pagination a").live("click", function() {
     $.getScript(this.href);
