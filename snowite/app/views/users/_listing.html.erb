@@ -1,0 +1,13 @@
+    <table class="table table-stripped">
+      <th> <%= sortable "fname", "Name" %> </th>
+      <th> <%= sortable"created_at", "Registered on" %> </th>
+      <% @users.each do |user|%>
+        <tr>  
+          <td><i> <%= user.fname %> <%= user.lname %> </i><%= link_to "show", user_path(user.id) %> </td>
+          <td>  <%= user.created_at.httpdate %> 
+                <%= link_to "delete", "/users/#{user.id}/del",
+                :method => :delete %></td>
+                   <%end%> 
+                   <%= paginate @users, :remote => true%>
+</table>
+ 

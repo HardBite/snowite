@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
           session[:admin_id] = nil
           session[:user_id] = user.id
           session[:role_id] = user.role_id
-          redirect_to user_path(:id) 
+          redirect_to user_path(user.id) 
         end
       
       else

@@ -1,0 +1,3 @@
+// #users is a div in index template. listing is a partial we want to be re-
+// rendered with this js
+$("#users").html("<%= escape_javascript(render("listing")) %>"); 

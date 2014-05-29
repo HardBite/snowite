@@ -1,9 +1,8 @@
 <h1>Edit</h1>
 
-<%= form_for @user, :method => :put, :action => :edit do |f|%>
+<%= form_for @user, :remote => true, :method => :put, :action => :edit do |f|%>
   
-  <%= render(:partial => "form", :locals => { :f => f, :user => @user })%>
-
+  <div id="edit-form"> <%= render(:partial => "form", :locals => { :f => f, :user => @user })%> </div>
 <%end%>  
 
 

@@ -7,5 +7,5 @@
     <li> With us since  <i> <%= @user.created_at.httpdate %></i> </li>
 </ul>
 
-<%= link_to 'Edit my profile', edit_user_path(:id)  %>
+<%= link_to 'Edit my profile', edit_user_path(@user.id)  %>
 
